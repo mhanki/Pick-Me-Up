@@ -1,5 +1,6 @@
 import { Searchbar } from 'react-native-paper';
-import { SafeArea, SearchContainer, RestaurantList } from './RestaurantScreen.styles';
+import { SearchContainer, RestaurantList } from './RestaurantScreen.styles';
+import { SafeArea } from '../../../components/SafeArea';
 import RestaurantInfoCard from '../components/RestaurantInfoCard';
 
 export default function RestaurantsScreen() {
