@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Pressable } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { MD2Colors } from 'react-native-paper';
 import { SafeArea } from '../../../components/SafeArea';
 import RestaurantInfoCard from '../components/RestaurantInfoCard';
@@ -27,9 +27,9 @@ export default function RestaurantsScreen({ navigation }) {
         data={restaurants}
         renderItem={({item}) => { 
           return(
-            <Pressable onPress={() => navigation.navigate("RestaurantDetail")}>
+            <TouchableOpacity onPress={() => navigation.navigate("RestaurantDetail")}>
               <RestaurantInfoCard restaurant={item}/>
-            </Pressable>
+            </TouchableOpacity>
           );
         }}
         keyExtractor={item => item.name}
