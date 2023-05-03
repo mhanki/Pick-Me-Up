@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Pressable } from 'react-native';
 import { MD2Colors } from 'react-native-paper';
 import { SafeArea } from '../../../components/SafeArea';
 import RestaurantInfoCard from '../components/RestaurantInfoCard';
@@ -10,9 +11,9 @@ import {
 } from './RestaurantScreen.styles';
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
-export default function RestaurantsScreen() {
+export default function RestaurantsScreen({ navigation }) {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
-  if(err) console.log(error);
+  if(error) console.log(error);
 
   return (
     <SafeArea>
@@ -24,7 +25,13 @@ export default function RestaurantsScreen() {
       )}
       <RestaurantList
         data={restaurants}
-        renderItem={({item}) => <RestaurantInfoCard restaurant={item}/>}
+        renderItem={({item}) => { 
+          return(
+            <Pressable onPress={() => navigation.navigate("RestaurantDetail")}>
+              <RestaurantInfoCard restaurant={item}/>
+            </Pressable>
+          );
+        }}
         keyExtractor={item => item.name}
       />
     </SafeArea>
