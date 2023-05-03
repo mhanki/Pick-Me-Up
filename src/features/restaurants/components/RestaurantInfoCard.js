@@ -24,6 +24,7 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
     isOpen = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId
   } = restaurant;
 
   return (
@@ -34,7 +35,7 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
         <Section>
           <Rating>
             {[...Array(Math.floor(rating))].map((val, i) => 
-              <SvgXml key={i} xml={star} width="20" height="20"/>
+              <SvgXml key={`star-${placeId}-${i}`} xml={star} width="20" height="20"/>
             )}
           </Rating>
           <SectionEnd>
