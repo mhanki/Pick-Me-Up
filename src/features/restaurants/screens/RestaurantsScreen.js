@@ -1,27 +1,32 @@
-import { Searchbar } from 'react-native-paper';
-import { SearchContainer, RestaurantList } from './RestaurantScreen.styles';
+import { useContext } from 'react';
+import { Searchbar, MD2Colors } from 'react-native-paper';
+import { 
+  SearchContainer, 
+  RestaurantList,
+  LoadingContainer,
+  Loading
+} from './RestaurantScreen.styles';
 import { SafeArea } from '../../../components/SafeArea';
 import RestaurantInfoCard from '../components/RestaurantInfoCard';
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
 export default function RestaurantsScreen() {
+  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  console.log(error);
+
   return (
     <SafeArea>
       <SearchContainer >
         <Searchbar />
       </SearchContainer>
+      {isLoading && (
+        <LoadingContainer>
+          <Loading size={50} animating={true} color={MD2Colors.blue300} />
+        </LoadingContainer>
+      )}
       <RestaurantList
-        data={[{
-          name: "Some Restaurant",
-          icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-          photos: [
-            "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
-          ],
-          address: "100 some random street",
-          isOpen: true,
-          rating: 4,
-          isClosedTemporarily: true
-        }, { name: "2"}, { name: "3"}]}
-        renderItem={() => <RestaurantInfoCard/>}
+        data={restaurants}
+        renderItem={({item}) => <RestaurantInfoCard restaurant={item}/>}
         keyExtractor={item => item.name}
       />
     </SafeArea>
