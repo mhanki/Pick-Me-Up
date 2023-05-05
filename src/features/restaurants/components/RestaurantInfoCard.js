@@ -14,7 +14,7 @@ import star from '../../../../assets/star.js';
 import open from '../../../../assets/open.js';
 import { Favourite } from '../../../components/Favourite';
 
-export default function RestaurantInfoCard({ restaurant = {} }) {
+export function RestaurantInfoCard({ restaurant = {} }) {
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",

@@ -3,13 +3,13 @@ import { TouchableOpacity } from 'react-native';
 import { MD2Colors } from 'react-native-paper';
 import { SafeArea } from '../../../components/SafeArea';
 import { FavouritesBar } from '../../../components/FavouritesBar';
-import RestaurantInfoCard from '../components/RestaurantInfoCard';
+import { RestaurantInfoCard } from '../components/RestaurantInfoCard';
 import { Search } from '../components/Search';
 import { 
   RestaurantList,
   LoadingContainer,
   Loading
-} from './RestaurantScreen.styles';
+} from './RestaurantsScreen.styles';
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
