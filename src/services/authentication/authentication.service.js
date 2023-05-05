@@ -1,4 +1,3 @@
-
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export const loginRequest = (app, email, password) => {
