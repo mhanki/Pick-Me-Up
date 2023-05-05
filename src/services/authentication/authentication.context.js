@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react';
 import { initializeApp } from 'firebase/app';
-import { loginRequest } from "./authentication.service";
+import { loginRequest, registrationRequest } from "./authentication.service";
 
 const firebaseConfig = {
   apiKey: "AIzaSyApizldNEz3oVcvsSoKF6-tbpe8cXICMBQ",
@@ -11,7 +11,7 @@ const firebaseConfig = {
   appId: "1:1097819191611:web:7c4fa809ae43b7d93e9f1e"
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 export const AuthenticationContext = createContext();
 
@@ -23,7 +23,24 @@ export const AuthenticationContextProvider = ({ children }) => {
   const onLogin = (email, password) => {
     setIsLoading(true);
 
-    loginRequest(app, email, password)
+    loginRequest(email, password)
+      .then((u) => {
+        setUser(u);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        setIsLoading(false);
+        setError(e.toString());
+      });
+  };
+
+  const onRegister = (email, password, repeatedPassword) => {
+    if (password !== repeatedPassword) {
+      setError("Error: Passwords do not match");
+      return;
+    };
+
+    registrationRequest(email, password)
       .then((u) => {
         setUser(u);
         setIsLoading(false);
@@ -41,6 +58,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         isLoading,
         error,
         onLogin,
+        onRegister
       }}
     >
       {children}
