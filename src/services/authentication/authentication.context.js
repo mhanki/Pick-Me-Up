@@ -24,9 +24,6 @@ export const AuthenticationContextProvider = ({ children }) => {
   onAuthStateChanged(getAuth(), (usr) => {
     if (usr) {
       setUser(usr);
-      setIsLoading(false);
-    } else {
-      setIsLoading(false);
     }
   });
 
