@@ -12,6 +12,7 @@ import {
 } from './RestaurantInfoCard.styles';
 import star from '../../../../assets/star.js';
 import open from '../../../../assets/open.js';
+import { Favourite } from '../../../components/Favourite';
 
 export default function RestaurantInfoCard({ restaurant = {} }) {
   const {
@@ -29,6 +30,7 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
 
   return (
     <InfoCard elevation={4}>
+      <Favourite restaurant={restaurant} />
       <InfoCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Text variant="title">{name}</Text>
