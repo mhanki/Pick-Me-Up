@@ -12,6 +12,7 @@ import {
 } from './RestaurantsScreen.styles';
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
+import { FadeInView } from '../../../components/animations/FadeInView';
 
 export default function RestaurantsScreen({ navigation }) {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
@@ -37,7 +38,9 @@ export default function RestaurantsScreen({ navigation }) {
         renderItem={({item}) => { 
           return(
             <TouchableOpacity onPress={() => navigation.navigate("RestaurantDetail", {restaurant: item})}>
-              <RestaurantInfoCard restaurant={item}/>
+              <FadeInView>
+                <RestaurantInfoCard restaurant={item}/>
+              </FadeInView>
             </TouchableOpacity>
           );
         }}
