@@ -1,5 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import { colors } from "../theme/colors"; 
 import { RestaurantsNavigator } from "./RestaurantsNavigator";
 import { SettingsNavigator } from "./SettingsNavigator";
 import { MapScreen } from '../../features/map/screens/MapScreen';
@@ -22,7 +23,8 @@ const createScreenOptions = ({ route }) => {
     tabBarIcon: ({ size, color }) => (
       <Ionicons name={iconName} size={size} color={color} />
     ),
-    tabBarActiveTintColor: 'tomato',
+    tabBarActiveTintColor: colors.brand.primary,
+    tabBarInactiveTintColor: colors.brand.muted,
     headerShown: false
   };
 };

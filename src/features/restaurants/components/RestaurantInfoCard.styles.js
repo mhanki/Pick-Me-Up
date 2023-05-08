@@ -5,6 +5,8 @@ export const InfoCard = styled(Card)`
   background-color: ${({theme}) => theme.colors.bg.primary};
   padding: ${({theme}) => theme.space[3]};
   margin-bottom: ${({theme}) => theme.space[3]};
+  width: 95%;
+  align-self: center;
 `;
 
 export const InfoCardCover = styled(Card.Cover)`

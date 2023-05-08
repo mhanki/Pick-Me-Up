@@ -29,7 +29,7 @@ export function RestaurantInfoCard({ restaurant = {} }) {
   } = restaurant;
 
   return (
-    <InfoCard elevation={4}>
+    <InfoCard elevation={2}>
       <Favourite restaurant={restaurant} />
       <InfoCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
