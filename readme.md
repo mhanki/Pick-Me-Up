@@ -1,4 +1,6 @@
-# ![](./assets/icon.png) Pick Me Up
+# Pick Me Up
+
+![](./assets/screenshots.png)
 
 **Coffee Shop & Restaurant Finder**
 
