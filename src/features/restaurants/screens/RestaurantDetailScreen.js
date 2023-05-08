@@ -8,7 +8,7 @@ import { RestaurantInfoCard } from '../components/RestaurantInfoCard';
 
 const ThemedAccordion = styled(List.Accordion).attrs({
   theme: {
-    colors: {primary: colors.brand.primary}
+    colors: {primary: colors.brand.secondary}
   }
 })``;
 

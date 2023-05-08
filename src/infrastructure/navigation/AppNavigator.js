@@ -21,11 +21,12 @@ const createScreenOptions = ({ route }) => {
 
   return {
     tabBarIcon: ({ size, color }) => (
-      <Ionicons name={iconName} size={size} color={color} />
+      <Ionicons name={iconName} size={size} color={color} backgroundColor={colors.brand.primary} paddingTop={10} />
     ),
-    tabBarActiveTintColor: colors.brand.primary,
-    tabBarInactiveTintColor: colors.brand.muted,
-    headerShown: false
+    tabBarActiveTintColor: colors.brand.secondary,
+    tabBarInactiveTintColor: "white",
+    headerShown: false,
+    tabBarStyle: { backgroundColor: colors.brand.primary }
   };
 };
 

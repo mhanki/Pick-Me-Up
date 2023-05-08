@@ -12,12 +12,16 @@ const NoFavouritesArea = styled(SafeArea)`
   justify-content: center;
 `;
 
+const FavouritesArea = styled(SafeArea)`
+  margin: 0px;
+`;
+
 export const FavouritesScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
 
   return favourites.length 
     ? (
-      <SafeArea>
+      <FavouritesArea style={{ margin: 0 }}>
         <RestaurantList
           data={favourites}
           renderItem={({ item }) => {
@@ -29,7 +33,7 @@ export const FavouritesScreen = ({ navigation }) => {
           }}
           keyExtractor={(item) => item.name}
         />
-      </SafeArea>
+      </FavouritesArea>
       ) 
     : (
       <NoFavouritesArea>

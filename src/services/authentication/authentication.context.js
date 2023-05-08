@@ -2,15 +2,7 @@ import { useState, createContext } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { loginRequest, registrationRequest, logoutRequest } from "./authentication.service";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyApizldNEz3oVcvsSoKF6-tbpe8cXICMBQ",
-  authDomain: "meals-to-go-4e0d3.firebaseapp.com",
-  projectId: "meals-to-go-4e0d3",
-  storageBucket: "meals-to-go-4e0d3.appspot.com",
-  messagingSenderId: "1097819191611",
-  appId: "1:1097819191611:web:7c4fa809ae43b7d93e9f1e"
-};
+import { firebaseConfig } from '../../utils/env';
 
 initializeApp(firebaseConfig);
 
@@ -28,6 +20,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   });
 
   const onLogin = (email, password) => {
+    setError(null);
     setIsLoading(true);
 
     loginRequest(email, password)
@@ -42,10 +35,12 @@ export const AuthenticationContextProvider = ({ children }) => {
   };
 
   const onRegister = (email, password, repeatedPassword) => {
+    setError(null);
     setIsLoading(true);
     
     if (password !== repeatedPassword) {
       setError("Error: Passwords do not match");
+      setIsLoading(false);
       return;
     };
 

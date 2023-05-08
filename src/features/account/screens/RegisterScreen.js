@@ -5,6 +5,7 @@ import {
   AccountCover,
   AccountContainer,
   AuthButton,
+  AccountButton,
   AuthInput,
   ErrorContainer,
   Title,
@@ -21,7 +22,7 @@ export const RegisterScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
-      <Title>Meals To Go</Title>
+      <Title>Pick Me Up</Title>
       <AccountContainer>
         <AuthInput
           label="E-mail"
@@ -64,9 +65,9 @@ export const RegisterScreen = ({ navigation }) => {
           <ActivityIndicator animating={true} color={MD2Colors.blue300} />
         )}
       </AccountContainer>
-      <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+      <AccountButton mode="contained" onPress={() => navigation.goBack()}>
         Back
-      </AuthButton>
+      </AccountButton>
     </AccountBackground>
   );
 };

@@ -1,10 +1,12 @@
 import { useContext, useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { Searchbar } from "react-native-paper";
+import { colors } from "../../../infrastructure/theme/colors";
 import { LocationContext } from "../../../services/location/location.context";
 
 const SearchContainer = styled.View`
   padding: ${({theme}) => theme.space[3]};
+  background-color: black;
 `;
 
 export const Search = ({ isFavouritesToggled, onFavouritesToggle }) => {
@@ -19,6 +21,7 @@ export const Search = ({ isFavouritesToggled, onFavouritesToggle }) => {
     <SearchContainer>
       <Searchbar
         icon={isFavouritesToggled ? "heart" : "heart-outline"}
+        iconColor={colors.brand.secondary}
         onIconPress={onFavouritesToggle}
         placeholder="Search for a location"
         value={searchKeyword}
@@ -28,6 +31,7 @@ export const Search = ({ isFavouritesToggled, onFavouritesToggle }) => {
         onChangeText={(text) => {
           setSearchKeyword(text);
         }}
+        style={{ backgroundColor: colors.brand.muted }}
       />
     </SearchContainer>
   );

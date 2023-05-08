@@ -7,7 +7,7 @@ import { Text } from './Text';
 const FavouritesWrapper = styled(Card)`
   padding: 10px;
   z-index: 999;
-  background-color: white;
+  background-color: ${({theme}) => theme.colors.brand.secondary};
   border-radius: 0;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;

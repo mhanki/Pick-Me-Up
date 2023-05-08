@@ -7,6 +7,7 @@ import {
   Title,
   AuthButton,
   AuthInput,
+  AccountButton,
   ErrorContainer
 } from "../components/Account.styles";
 import { Text } from "../../../components/Text";
@@ -20,7 +21,7 @@ export const LoginScreen = ({navigation}) => {
   return (
     <AccountBackground>
       <AccountCover />
-      <Title>Meals To Go</Title>
+      <Title>Pick Me Up</Title>
       <AccountContainer>
         <AuthInput
           label="E-mail"
@@ -56,9 +57,9 @@ export const LoginScreen = ({navigation}) => {
           <ActivityIndicator animating={true} color={MD2Colors.blue300} />
         )}
       </AccountContainer>
-      <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+      <AccountButton mode="contained" onPress={() => navigation.goBack()}>
         Back
-      </AuthButton>
+      </AccountButton>
     </AccountBackground>
   );
 };

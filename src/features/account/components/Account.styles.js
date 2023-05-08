@@ -1,10 +1,11 @@
 import styled from "styled-components/native";
 import { Button, TextInput} from "react-native-paper";
 import { colors } from "../../../infrastructure/theme/colors";
+import { space } from "../../../infrastructure/theme/spacing";
 import { Text } from "../../../components/Text";
 
 export const AccountBackground = styled.ImageBackground.attrs({
-  source: require("../../../../assets/home_bg.jpg"),
+  source: require("../../../../assets/to-go.jpg"),
 })`
   flex: 1;
   align-items: center;
@@ -29,14 +30,26 @@ export const Title = styled(Text)`
 `;
 
 export const AuthButton = styled(Button)
+  .attrs({ buttonColor: colors.brand.secondary })`
+  padding: ${({theme}) => theme.space[2]};
+  margin: ${({theme}) => theme.space[3]};
+`;
+
+export const AccountButton = styled(Button)
   .attrs({ buttonColor: colors.brand.primary })`
   padding: ${({theme}) => theme.space[2]};
   margin: ${({theme}) => theme.space[3]};
 `;
 
-export const AuthInput = styled(TextInput)`
+export const AuthInput = styled(TextInput).attrs({
+  theme: {
+    colors: {primary: colors.brand.secondary}
+  }
+})`
   width: 300px;
-  margin-bottom: ${({theme}) => theme.space[3]};
+  margin-bottom: ${space[3]};
+  background-color: ${colors.brand.muted};
+  border-bottom-color: ${colors.brand.secondary};
 `;
 
 export const ErrorContainer = styled.View`
@@ -49,7 +62,7 @@ export const ErrorContainer = styled.View`
 
 export const AnimationWrapper = styled.View`
   width: 100%;
-  height: 40%;
+  height: 30%;
   position: absolute;
   top: 30px;
   padding: ${({theme}) => theme.space[2]};
