@@ -18,6 +18,15 @@ This is a mobile app created using React Native to help users find coffee shops 
 
 To preview this app, you will need to have the [Expo client](https://expo.dev/) installed on your mobile device or in an emulator. With the client you can either scan the QR code or copy the link from the project page: https://expo.dev/@schlenges/PickMeUp 
 
+Data used to register will temporarily be stored through Firebase. 
+Alternatively, you can use a test account with the credentials
+```
+  email: test@mail.com
+  password: test123
+```
+
+Since the app is currently only being populated by mock data, the search will only display results for ```Chicago```, ```San Francisco```, ```Antwerp``` and ```Toronto```.
+
 ## Credits
 
 The coffee-to-go cup icon is by <a href="https://www.flaticon.com/free-icons/coffee" title="coffee icons">justicon via Flaticon</a>.
